@@ -49,7 +49,7 @@ enum ShellMetadata {
         item?.button?.image = NSImage(systemSymbolName: ShellMetadata.value["icon"] as? String ?? "leaf", accessibilityDescription: ShellMetadata.name)
         let values = handle?.plugin.summary as? [String:String] ?? [:]
         item?.button?.toolTip = values.sorted { $0.key < $1.key }.map { $0.key + " " + $0.value }.joined(separator: "\n")
-        if ShellMetadata.id == "cyan-monitor" { item?.button?.title = " " + ["CPU", "内存", "下载", "上传"].compactMap { key in values[key].map { key + " " + $0 } }.joined(separator: "  ") }
+        if let image = handle?.plugin.menuBarImage ?? nil { item?.button?.image = image; item?.button?.title = "" }
     }
     @objc func show() {
         guard let plugin = handle?.plugin else { return }

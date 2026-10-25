@@ -1,7 +1,7 @@
 {
   "id": "cyan-monitor",
   "name": "Cyan Monitor",
-  "version": "0.2.0-preview.1",
+  "version": "0.2.0-preview.2",
   "bundleID": "io.github.cyanyuanchu.cyan-monitor",
   "protocolVersion": 2,
   "minMacOS": "14.0",

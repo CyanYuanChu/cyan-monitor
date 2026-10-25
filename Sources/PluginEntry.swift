@@ -19,6 +19,7 @@ import Darwin
         let controller = NSHostingController(rootView: view)
         self.controller = controller; return controller
     }
+    var menuBarImage: NSImage? { active ? feature?.menuImage : nil }
     var summary: NSDictionary { (feature?.summary ?? [:]) as NSDictionary }
     func startFeature() -> NSString? {
         if active { return nil }
