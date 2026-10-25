@@ -24,7 +24,9 @@ struct SystemReading {
     private var previousNetwork: [String: (UInt32, UInt32)] = [:]
     private var previousTime: TimeInterval?
     private var timer: Timer?
+    func stop() { timer?.invalidate(); timer = nil; previousCPU = nil; previousNetwork = [:]; previousTime = nil }
     func start() {
+        guard timer == nil else { return }
         sample()
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in Task { @MainActor in self?.sample() } }
     }
@@ -82,8 +84,8 @@ enum MenuMetric: String, CaseIterable, Identifiable {
     var icon: String { switch self { case .cpu: "cpu"; case .memory: "memorychip"; case .disk: "internaldrive"; case .network: "network" } }
 }
 @MainActor final class MenuBarSettings: ObservableObject {
-    @Published var enabled: Set<String> { didSet { UserDefaults.standard.set(Array(enabled), forKey: "cyan.menu.metrics") } }
-    init() { enabled = Set(UserDefaults.standard.stringArray(forKey: "cyan.menu.metrics") ?? MenuMetric.allCases.map(\.rawValue)) }
+    @Published var enabled: Set<String> { didSet { FeaturePreferences.shared.set(Array(enabled), forKey: "cyan.menu.metrics") } }
+    init() { enabled = Set(FeaturePreferences.shared.stringArray(forKey: "cyan.menu.metrics") ?? MenuMetric.allCases.map(\.rawValue)) }
     func set(_ metric: MenuMetric, _ value: Bool) { if value { enabled.insert(metric.rawValue) } else { enabled.remove(metric.rawValue) } }
 }
 

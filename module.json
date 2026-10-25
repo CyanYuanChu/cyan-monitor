@@ -1,13 +1,15 @@
 {
   "id": "cyan-monitor",
   "name": "Cyan Monitor",
-  "version": "0.1.0-preview.1",
+  "version": "0.2.0-preview.1",
   "bundleID": "io.github.cyanyuanchu.cyan-monitor",
-  "protocolVersion": 1,
+  "protocolVersion": 2,
   "minMacOS": "14.0",
   "architecture": "arm64",
   "repository": "CyanYuanChu/cyan-monitor",
   "appName": "Cyan Monitor.app",
   "icon": "gauge.with.dots.needle.50percent",
-  "description": "系统监控与菜单栏"
+  "description": "系统监控与菜单栏",
+  "moduleName": "cyan-monitor.groveplugin",
+  "pluginBundleID": "io.github.cyanyuanchu.cyan-monitor.feature"
 }
