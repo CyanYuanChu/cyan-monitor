@@ -1,0 +1,13 @@
+{
+  "id": "cyan-monitor",
+  "name": "Cyan Monitor",
+  "version": "0.1.0-preview.1",
+  "bundleID": "io.github.cyanyuanchu.cyan-monitor",
+  "protocolVersion": 1,
+  "minMacOS": "14.0",
+  "architecture": "arm64",
+  "repository": "CyanYuanChu/cyan-monitor",
+  "appName": "Cyan Monitor.app",
+  "icon": "gauge.with.dots.needle.50percent",
+  "description": "系统监控与菜单栏"
+}
